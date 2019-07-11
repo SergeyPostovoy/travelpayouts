@@ -39,9 +39,8 @@ input {
 .App {
     height: 100%;
     text-align: left;
-}
 
-.App-sidebar {
+    &-sidebar {
         top: 0;
         left: 0;
         width: 80px;
@@ -49,9 +48,8 @@ input {
         position: fixed;
         background: #1d1d2b;
         overflow: auto;
-    }
 
-.App-sidebar .Logo{
+        .Logo{
             display: block;
             text-align: center;
             margin-right: 5px;
@@ -60,38 +58,39 @@ input {
             color: var(--color-primary);
             text-decoration: none;
             transition: 0.5s ease;
-        }
-
-.App-sidebar .Logo:active{
+            &:active{
                 transform: scale(0.95) rotateY(360deg);
                 filter: drop-shadow(0 0 8px var(--color-white));
             }
-
-.App-sidebar > a > svg {
+        }
+        & > a {
+            & > svg {
                 width: 50%;
                 margin: 25%;
                 stroke: var(--color-grey);
                 fill: transparent;
                 transition: 0.5s ease;
 
-            }
-
-.App-sidebar > a > svg:not(.active):hover,
-                .App-sidebar > a > svg:not(.active):active {
+                &:not(.active):hover,
+                &:not(.active):active {
                     stroke: var(--color-white);
                     opacity: 0.9;
                 }
 
-.App-sidebar > a:not(.active) svg:active{
+            }
+
+            &:not(.active) svg:active{
                 transform: scale(0.885);
                 fill: var(--color-white);
             }
 
-.App-sidebar > a.active svg {
+            &.active svg {
                 stroke: var(--color-white);
             }
+        }
+    }
 
-.App-services {
+    &-services {
         top: 0;
         left: 0;
         width: calc(100% - 110px);
@@ -101,51 +100,52 @@ input {
         color: #1d1d2b;
         overflow: scroll;
         background: var(--color-back);
-    }
 
-.App-services .content {
+        .content {
             padding: 17px 30px;
-        }
 
-.App-services .content .filter .label {
+            .filter {
+                .label {
                     font-size: 11px;
                     letter-spacing: 1px;
                     text-transform: uppercase;
                 }
 
-.App-services .content .filter input,
-                .App-services .content .filter button {
+                input,
+                button {
                     padding: 10px 20px;
                     border: none;
                     border-radius: 2px;
                     box-shadow: 0 0 1px var(--color-grey);
                 }
 
-.App-services .content .filter input {
+                input {
                     width: 240px;
                     margin: 5px 10px 0 0;
                 }
 
-.App-services .content .filter button {
+                button {
                     width: 120px;
                     cursor: pointer;
                     background: transparent;
                     color: var(--color-black);
                     transition: 0.2s linear;
-                }
 
-.App-services .content .filter button:hover,
-                    .App-services .content .filter button:active {
+                    &:hover,
+                    &:active {
                         color: var(--color-white);
                         background: var(--color-primary);
                         opacity: 0.8;
                     }
 
-.App-services .content .filter button:active {
+                    &:active {
                         transform: scale(0.98);
                     }
+                }
+            }
 
-.App-services .content .payouts .item {
+            .payouts {
+                .item {
                     width: calc(100% - 60px);
                     max-width: 1000px;
                     border-radius: 8px;
@@ -155,24 +155,22 @@ input {
                     padding: 20px 30px;
                     margin-bottom: 17px;
                     box-shadow: 0 0 1px var(--color-grey);
-                }
 
-.App-services .content .payouts .item > div {
+                    > div {
                         width: 30%;
                         height: 70px;
                         align-self: center;
-                    }
 
-.App-services .content .payouts .item > div:first-child {
+                        &:first-child {
                             width: 40%;
                             height: 100%;
                         }
-
-.App-services .content .payouts .item .promocode {
-                        position: relative;
                     }
 
-.App-services .content .payouts .item .promocode:before {
+                    .promocode {
+                        position: relative;
+
+                        &:before {
                             position: absolute;
                             top: 2px;
                             left: 0;
@@ -183,11 +181,11 @@ input {
                             content: "Промокод";
                         }
 
-.App-services .content .payouts .item .promocode.copied input{
+                        &.copied {
+                            input{
                                 filter: brightness(4) opacity(0.3);
                             }
-
-.App-services .content .payouts .item .promocode.copied:after {
+                            &:after {
                                 content: "Скопировано";
                                 letter-spacing: 2px;
                                 background: #000000bb;
@@ -207,12 +205,13 @@ input {
                                 cursor: grabbing;
                             }
 
-.App-services .content .payouts .item .promocode.copied > svg {
+                            & > svg {
                                 z-index: 2;
                                 filter: brightness(3) grayscale(1);
                             }
+                        }
 
-@keyframes scaleVertical {
+                        @keyframes scaleVertical {
                             0% {
                                 opacity: 0;
                                 color: transparent;
@@ -231,15 +230,15 @@ input {
                             }
                         }
 
-.App-services .content .payouts .item .promocode input,
-                        .App-services .content .payouts .item .promocode svg {
+                        input,
+                        svg {
                             position: absolute;
                             top: 20px;
                             right: 0;
                             transition: 0.3s ease;
                         }
 
-.App-services .content .payouts .item .promocode input {
+                        input {
                             right: 10px;
                             width: calc(100% - 52px);
                             height: 26px;
@@ -249,13 +248,14 @@ input {
                             cursor: grab;
                         }
 
-.App-services .content .payouts .item .promocode svg {
+                        svg {
                             top: 37px;
                             right: 22px;
                             fill: var(--color-primary);
                         }
+                    }
 
-.App-services .content .payouts .item .button {
+                    .button {
                         width: calc(100% - 30px);
                         text-align: center;
                         float: right;
@@ -264,75 +264,82 @@ input {
                         padding: 15px;
                         border-radius: 2px;
                         transition: 0.2s linear;
-                    }
 
-.App-services .content .payouts .item .button:hover,
-                        .App-services .content .payouts .item .button:active {
+                        &:hover,
+                        &:active {
                             opacity: 0.8;
                         }
 
-.App-services .content .payouts .item .button:active {
+                        &:active {
                             transform: scale(0.98);
                         }
-
-.App-services .content .filter,
-            .App-services .content .payouts {
-                padding-bottom: 15px;
+                    }
+                }
             }
 
-.App h1 {
+            .filter,
+            .payouts {
+                padding-bottom: 15px;
+            }
+        }
+    }
+
+    h1 {
         font-size: 35px;
         letter-spacing: 2px;
         margin: 17px 0;
     }
 
-.App h2 {
+    h2 {
         font-size: 20px;
         margin: 0 0 10px;
     }
 
-.App .label {
+    .label {
         font-size: 13px;
         letter-spacing: 0;
         color: var(--color-grey);
     }
 
-.App .value {
+    .value {
         font-size: 18px;
     }
 
-.App .header {
+    .header {
         width: 100%;
         padding: 18px 15px;
         background: var(--color-white);
         display: flex;
         align-items: flex-start;
-    }
 
-.App .header .param .label,
-            .App .header .param .value {
+        .param {
+            .label,
+            .value {
                 display: block;
                 padding: 1px 15px;
                 width: 100%;
                 clear: both;
             }
+        }
+    }
 
-.App .button {
+    .button {
         padding: 10px;
         width: 100%;
         color: var(--color-white);
         background: var(--color-primary);
         box-shadow: 0 0 1px -2px var(--color-primary);
-    }
 
-.App .button:hover,
-        .App .button:active {
+        &:hover,
+        &:active {
             box-shadow: 0 0 1px 0 var(--color-primary);
         }
 
-.App .button:active {
+        &:active {
             transform: scale(0.98);
         }
+    }
+}
 
 @keyframes App-logo-spin {
     from {
