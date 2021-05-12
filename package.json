@@ -11,7 +11,7 @@
     "accounting": "^0.4.1",
     "copy-to-clipboard": "^3.2.0",
     "npm-run-all": "^4.1.5",
-    "postcss": "^7.0.17",
+    "postcss": "^8.2.10",
     "postcss-cli": "^6.1.2",
     "postcss-nested": "^4.1.2",
     "react": "^16.8.6",
